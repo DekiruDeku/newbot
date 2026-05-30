@@ -1,6 +1,7 @@
 package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.builder.Scenario
+import com.justai.jaicf.activator.regex.regex
 
 val MainScenario = Scenario {
 
@@ -41,6 +42,6 @@ val MainScenario = Scenario {
     }
 
     fallback {
-        reactions.say("Извините, я не понял запрос. Я умею отвечать на приветствие, запрос погоды и курс валют. Попробуйте написать: «привет», «погода» или «курс валют».")
+        reactions.go("/NoMatch")
     }
 }
