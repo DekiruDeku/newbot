@@ -6,7 +6,7 @@ val mainScenario = Scenario {
 
     state("hello", noContext = true) {
         activators {
-            regex(".*(привет|здравствуй|здравствуйте|добрый день|доброе утро|добрый вечер|hello|hi|старт|помощь|что ты умеешь).*")
+            regex("""(?iu).*(привет|здравствуй|здравствуйте|добрый\s+день|доброе\s+утро|добрый\s+вечер|hello|hi|старт|помощь|что\s+ты\s+умеешь).*""")
         }
 
         action {
@@ -16,7 +16,7 @@ val mainScenario = Scenario {
 
     state("weather", noContext = true) {
         activators {
-            regex(".*(погода|погоду|погоде|прогноз|температура|дождь|снег|weather).*")
+            regex("""(?iu).*(погод|прогноз|температур|дожд|снег|weather).*""")
         }
 
         action {
@@ -26,7 +26,7 @@ val mainScenario = Scenario {
 
     state("currency", noContext = true) {
         activators {
-            regex(".*(курс|валюта|валют|доллар|евро|usd|eur|exchange|currency).*")
+            regex("""(?iu).*(курс|валют|доллар|евро|usd|eur|exchange|currency).*""")
         }
 
         action {
@@ -41,6 +41,6 @@ val mainScenario = Scenario {
     }
 
     fallback {
-        reactions.say("Извините, я не понял запрос. Я умею отвечать на приветствие, запрос погоды и курс валют. Попробуйте написать: «привет», «погода» или «курс валют».")
+        reactions.go("/NoMatch")
     }
 }
