@@ -2,7 +2,7 @@ package com.justai.jaicf.template.scenario
 
 import com.justai.jaicf.builder.Scenario
 
-val mainScenario = Scenario {
+val MainScenario = Scenario {
 
     state("hello", noContext = true) {
         activators {

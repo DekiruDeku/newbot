@@ -9,7 +9,7 @@ import com.justai.jaicf.channel.jaicp.logging.JaicpConversationLogger
 import com.justai.jaicf.context.manager.InMemoryBotContextManager
 import com.justai.jaicf.context.manager.mongo.MongoBotContextManager
 import com.justai.jaicf.logging.Slf4jConversationLogger
-import com.justai.jaicf.template.scenario.mainScenario
+import com.justai.jaicf.template.scenario.MainScenario
 import com.mongodb.client.MongoClients
 import java.util.*
 
@@ -35,7 +35,7 @@ private val cailaNLUSettings = CailaNLUSettings(
 )
 
 val templateBot = BotEngine(
-    scenario = mainScenario,
+    scenario = MainScenario,
     defaultContextManager = contextManager,
     activators = arrayOf(
         CailaIntentActivator.Factory(cailaNLUSettings),
